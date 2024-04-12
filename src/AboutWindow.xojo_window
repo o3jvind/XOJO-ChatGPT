@@ -55,7 +55,7 @@ Begin DesktopWindow AboutWindow
       MaximumCharactersAllowed=   0
       Multiline       =   True
       ReadOnly        =   True
-      Scope           =   0
+      Scope           =   2
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
@@ -95,9 +95,9 @@ Begin DesktopWindow AboutWindow
       LockRight       =   True
       LockTop         =   False
       MaximumCharactersAllowed=   0
-      Password        =   False
+      Password        =   True
       ReadOnly        =   False
-      Scope           =   0
+      Scope           =   2
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
@@ -132,7 +132,7 @@ Begin DesktopWindow AboutWindow
       LockRight       =   True
       LockTop         =   False
       MacButtonStyle  =   0
-      Scope           =   0
+      Scope           =   2
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
@@ -163,7 +163,7 @@ Begin DesktopWindow AboutWindow
       LockRight       =   True
       LockTop         =   False
       MacButtonStyle  =   0
-      Scope           =   0
+      Scope           =   2
       TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
@@ -191,7 +191,7 @@ Begin DesktopWindow AboutWindow
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   0
+      Scope           =   2
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0

@@ -223,8 +223,8 @@ End
 	#tag EndMenuHandler
 
 
-	#tag Property, Flags = &h0
-		ChatConnection As ChatGPTConnection
+	#tag Property, Flags = &h21
+		Private ChatConnection As ChatGPTConnection
 	#tag EndProperty
 
 
@@ -260,7 +260,7 @@ End
 		    //Make some room and make ready for the response
 		    Conversation.AddText(EndOfLine + EndOfLine)
 		    Conversation.SelectionBold = True
-		    Conversation.AddText("GPT" + EndOfLine)
+		    Conversation.AddText(AssistantPopUp.SelectedRowText + EndOfLine)
 		    Conversation.SelectionBold = False
 		    
 		    //Make the ChatProgressBar visible
@@ -292,8 +292,8 @@ End
 #tag Events AssistantPopUp
 	#tag Event
 		Sub Opening()
-		  Me.AddRow("Standard")
-		  Me.RowTagAt(Me.LastAddedRowIndex) = "You are a helpfull assistant."
+		  Me.AddRow("ChatGPT")
+		  Me.RowTagAt(Me.LastAddedRowIndex) = ""
 		  
 		  Me.AddRow("Grumpy Old Man")
 		  Me.RowTagAt(Me.LastAddedRowIndex) = "You're a grumpy old man who isn't willing to help in any way. You tend to believe that everything was better in the old days. You have a strong aversion to capitalized products and company names, but can reluctantly talk about them. You are patronizing, especially if people make typos or spelling mistakes, and don't fail to point out people's errors."
