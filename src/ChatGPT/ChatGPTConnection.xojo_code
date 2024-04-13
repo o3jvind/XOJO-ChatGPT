@@ -232,19 +232,22 @@ Inherits URLConnection
 
 	#tag Method, Flags = &h21
 		Private Function TotalContextTokens() As Integer
-		  'Count how many tokens have been used in all the prompts and answers in Messages
-		  Var totalTokens As Integer
-		  For i As Integer = 0 To ContextHistory.LastRowIndex
-		    Var message As JSONItem = ContextHistory.ValueAt(i)
-		    If message.HasKey("usage") Then
-		      Var usage As JSONItem = message.Value("usage")
-		      totalTokens = TotalTokens + usage.Value("total_tokens")
-		    End If
-		  Next
+		  ''Count how many tokens have been used in all the prompts and answers in Messages
+		  'Var totalTokens As Integer
+		  'For i As Integer = 0 To ContextHistory.LastRowIndex
+		  'Var message As JSONItem = ContextHistory.ValueAt(i)
+		  'If message.HasKey("usage") Then
+		  'Var usage As JSONItem = message.Value("usage")
+		  'totalTokens = TotalTokens + usage.Value("total_tokens")
+		  'End If
+		  'Next
+		  '
+		  'Return totalTokens
 		  
-		  Return totalTokens
-		  
-		  
+		  //We don't get "usage" when streaming – this is just a temp fix
+		  Var MessageLength As  Integer
+		  MessageLength = ContextHistory.ToString.Length
+		  Return MessageLength
 		End Function
 	#tag EndMethod
 
