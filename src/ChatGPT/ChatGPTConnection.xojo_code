@@ -224,7 +224,7 @@ Inherits URLConnection
 		  j.Value("messages") = ContextHistory
 		  
 		  SetRequestContent(j.ToString, "application/json")
-		  System.DebugLog(j.ToString)
+		  'System.DebugLog(j.ToString)
 		  
 		  Me.Send("POST", "https://api.openai.com/v1/chat/completions", TimeOut)
 		End Sub
@@ -246,7 +246,7 @@ Inherits URLConnection
 		  
 		  //We don't get "usage" when streaming – this is just a temp fix
 		  Var MessageLength As  Integer
-		  MessageLength = ContextHistory.ToString.Length
+		  MessageLength = ContextHistory.ToString.Length / 4
 		  Return MessageLength
 		End Function
 	#tag EndMethod
@@ -264,11 +264,19 @@ Inherits URLConnection
 		    Var maxPercentageTokens As Integer = totalTokens / percentage
 		    
 		    'now remove messages until we are at or below the target number of characters
-		    Var tct As Integer
-		    Do
-		      ContextHistory.RemoveAt(0)
-		    Loop Until(maxPercentageTokens <= TotalContextTokens)
-		  End If
+		    
+		    If ContextHistory.Count > 2 Then
+		      
+		      Do
+		        ContextHistory.RemoveAt(1)
+		      Loop Until(maxPercentageTokens <= TotalContextTokens)
+		      System.DebugLog(ContextHistory.ToString)
+		    End If
+		    
+		  End if
+		  
+		  
+		  
 		End Sub
 	#tag EndMethod
 
